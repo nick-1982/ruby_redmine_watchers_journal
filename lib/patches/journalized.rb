@@ -1,7 +1,7 @@
 require_dependency 'watchers_controller'
 
 module Patches
-  module Patch
+  module Journalized
     def self.included(base)
       base.extend(ClassMethods)
       base.send(:include, InstanceMethods)
@@ -32,7 +32,6 @@ module Patches
         end
         respond_to do |format|
           format.html { redirect_to_referer_or {render :html => 'Watcher added.', :status => 200, :layout => true}}
-          #format.js { @users = users_for_new_watcher }
           format.js { render inline: "location.reload();" }
           format.api { render_api_ok }
         end
@@ -65,7 +64,6 @@ module Patches
           @journal.valid? ? @journal.save : nil
         end
       end
-
     end
   end
 end

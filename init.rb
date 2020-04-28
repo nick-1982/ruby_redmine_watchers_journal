@@ -1,5 +1,5 @@
 require 'redmine'
-require 'patches/patch'
+require 'patches/journalized'
 
 Redmine::Plugin.register :jwatchers do
   name 'Jwatchers plugin'
@@ -11,5 +11,5 @@ Redmine::Plugin.register :jwatchers do
 end
 
 Rails.application.config.to_prepare do
-  WatchersController.send(:include, Patches::Patch)
+  WatchersController.send(:include, Patches::Journalized)
 end
