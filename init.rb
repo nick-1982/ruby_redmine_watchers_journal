@@ -1,7 +1,7 @@
 require 'redmine'
 require 'patches/journalized'
 
-Redmine::Plugin.register :jwatchers do
+Redmine::Plugin.register :ruby_redmine_watchers_journal do
   name 'Jwatchers plugin'
   author 'Nick'
   description 'This is a plugin for Redmine'
